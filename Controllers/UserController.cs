@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace API_Study.Controllers
 {
@@ -14,16 +15,15 @@ namespace API_Study.Controllers
     {
         //Giving a function for the controller, in this case a method to obtain date
 
-        [HttpGet("GetDateNow")]
-        public IActionResult TodayDate(){
-
-            //Variable who gets the date and the time
-            var obj = new {
+        [HttpGet("TodayDate")]
+        public IActionResult TodayDate()
+        {
+            var obj = new
+            {
                 Date = DateTime.Now.ToLongDateString(),
-                Time = DateTime.Now.ToShortTimeString() 
+                Time = DateTime.Now.ToShortTimeString()
             };
             return Ok(obj);
         }
-
     }
 }
