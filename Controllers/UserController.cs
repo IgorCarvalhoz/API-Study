@@ -1,29 +1,31 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace API_Study.Controllers
 {
-
-    //Creating a controller, the controllers have the organization job. For example everything about the users wil contains in this controller
-    [ApiController]
-    [Route("[controller]")]
-    public class UserController : ControllerBase
-    {
-        //Giving a function for the controller, in this case a method to obtain date
-
-        [HttpGet("TodayDate")]
-        public IActionResult TodayDate()
+        [ApiController]
+        [Route("api/[controller]")]
+        
+        public class UserController : ControllerBase
         {
-            var obj = new
+            [HttpGet("GetDate")]           
+            public IActionResult GetDate()
             {
+            var obj = new {
                 Date = DateTime.Now.ToLongDateString(),
                 Time = DateTime.Now.ToShortTimeString()
             };
             return Ok(obj);
         }
+        [HttpGet ("ToPresent/{nome}")]
+        public IActionResult ToPresent (string nome){
+            var message  = $"Hello{nome} you are welcome";
+            return Ok(new{message});
+        } 
     }
 }
