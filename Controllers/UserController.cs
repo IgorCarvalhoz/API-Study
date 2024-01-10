@@ -26,6 +26,18 @@ namespace API_Study.Controllers
         public IActionResult ToPresent (string nome){
             var message  = $"Hello{nome} you are welcome";
             return Ok(new{message});
-        } 
+        }
+        [HttpGet ("ChampionMain/{championName}")] 
+        public IActionResult ChampioMain(string championName){
+            var message2 = $"{championName} the Heart of the Freljord";
+            var message3 = $"{championName} the Hand of Noxus";
+            if (championName == "Darius"){
+                return Ok(new {message3});
+            }
+            else if (championName == "Braum"){
+                return Ok(new {message2});
+            } 
+            return Ok();
+        }   
     }
 }
