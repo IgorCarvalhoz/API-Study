@@ -7,15 +7,8 @@ namespace API_Study.Entities
 {
     public class Contact
     {
-        public Contact(string name, string phone, bool active, int id)
-        {
-            Name = name;
-            Phone = phone;
-            Active = active;
-            ID = id;
-        }
-        public string Name { get; set; }
-        public string Phone { get; set; }
+        public string? Name { get; set; }
+        public string? Phone { get; set; }
         public bool Active { get; set; }
         public int ID { get; set; }
     }

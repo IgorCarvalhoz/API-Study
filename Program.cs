@@ -15,7 +15,6 @@ internal class Program
         //the "GetConnectionString" recieve the value of connection key (in appsettings dev json) with the name connection.
 
         builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -36,4 +35,5 @@ internal class Program
 
         app.Run();
     }
+    //dotnet-ef migrations add MigrationName
 }
