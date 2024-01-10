@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj": {}
+    "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj": {}
   },
   "projects": {
-    "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj": {
+    "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj",
+        "projectUniqueName": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj",
         "projectName": "API-Study",
-        "projectPath": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj",
+        "projectPath": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj",
         "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\obj\\",
+        "outputPath": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config"

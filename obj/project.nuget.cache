@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KkGJsOnTAq2qkFHnJMWaIWuCpUyGTct1FlsTw9sZtJwypEH0FNVbwBBOncMEb1JFc4G8NMvJNKcbGNDWTT9EgA==",
+  "dgSpecHash": "ai4OheuWct9Gj/M1Zxw+bzP4vvt6cH6fYG1ZuSHKSTIJ1Wh3pokcerahrvhPGB6ogDCLd0WrsGjDP6+TxOrnSw==",
   "success": true,
-  "projectFilePath": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj",
+  "projectFilePath": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.0\\microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
