@@ -6,6 +6,10 @@ using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+//dotnet add package Microsoft.EntityFrameworkCore.Design - Instal Entity Package 
+//dotnet add package Microsoft.EntityFrameworkCore.SqlServer - Instal SQL Package
+
+
 namespace API_Study.Controllers
 {
         [ApiController]

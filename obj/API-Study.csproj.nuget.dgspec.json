@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj": {}
+    "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj": {}
   },
   "projects": {
-    "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj": {
+    "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj",
+        "projectUniqueName": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj",
         "projectName": "API-Study",
-        "projectPath": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\API-Study.csproj",
+        "projectPath": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\API-Study.csproj",
         "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "D:\\OrientacaoObjetos.NET\\API\\API-STudy\\obj\\",
+        "outputPath": "D:\\OrientacaoObjetos.NET\\API\\API-Study\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,6 +41,16 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
