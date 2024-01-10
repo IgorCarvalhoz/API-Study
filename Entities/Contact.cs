@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace API_Study.Entities
 {
-    public class Contact
+    public class Contact //This class becomes a table in SQL by the migrations and the table recieve al this atributes
     {
-        public string? Name { get; set; }
+        public string? Nome {get; set;}
         public string? Phone { get; set; }
         public bool Active { get; set; }
         public int ID { get; set; }

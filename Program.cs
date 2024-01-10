@@ -1,3 +1,4 @@
+using System.Globalization;
 using API_Study.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,8 +6,16 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        void ConfigureServices(IServiceCollection services)
+        {
+            // Configurando a cultura para "en-US"
+            CultureInfo cultureInfo = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+        }
 
+
+        var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddDbContext<ScheduleContext> (options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("StandardConnection"))
@@ -36,4 +45,5 @@ internal class Program
         app.Run();
     }
     //dotnet-ef migrations add MigrationName
+    //dotnet-ef database update
 }
