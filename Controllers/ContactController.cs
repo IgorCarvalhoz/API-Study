@@ -12,7 +12,7 @@ namespace API_Study.Controllers
     [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
-        public readonly ScheduleContext _context; // this prop defines the schedule table content into _context
+        public readonly ScheduleContext _context; //Essa propriedade define que a variável _context gravará os dados na tabela ScheduleContext 
         public ContactController(ScheduleContext context)
         {
             _context = context;
