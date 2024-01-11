@@ -6,15 +6,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        void ConfigureServices(IServiceCollection services)
-        {
-            // Configurando a cultura para "en-US"
-            CultureInfo cultureInfo = new CultureInfo("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
-        }
-
-
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddDbContext<ScheduleContext> (options =>
