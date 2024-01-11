@@ -37,4 +37,6 @@ internal class Program
     }
     //dotnet-ef migrations add MigrationName
     //dotnet-ef database update
+    //dotnet add package Microsoft.EntityFrameworkCore.Design - Instal Entity Package 
+    //dotnet add package Microsoft.EntityFrameworkCore.SqlServer - Instal SQL Package
 }
