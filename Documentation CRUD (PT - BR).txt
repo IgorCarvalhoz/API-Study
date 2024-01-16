@@ -1,0 +1,92 @@
+Criação de Controllers (Fora do CRUD) – Diferentes paginas por exemplo: Sobre, Contato, Saiba Mais, Trabalhe Conosco
+namespace API_Study.Controllers
+{
+    [ApiController] ***
+    [Route("api/[controller]")]***
+    public class UserController : ControllerBase //Herança da classe UserController para ControllerBase 
+    {  
+        [HttpGet("GetDateNow Nome da controller")] ***
+        public IActionResult TodayDate(){ //Chamando a interface ActionResult 
+            var obj = new {
+                Date = DateTime.Now.ToLongDateString(),
+                Time = DateTime.Now.ToShortTimeString() 
+            };
+            return Ok(obj); ***
+        }
+    }
+}
+
+Exemplo de controller criada para obter a data e a hora atual, neste trecho de código foi foi criado um metodo anonimo cujo não recebe valores como int ou string, ele esta em aberto e pode ser qualquer tipo de variavel por isso é utilizado a palavrea VAR. 
+Logo em seguida são criadas duas novas variaveis que nos trazem a data e a hora para dentro da nossa variavel OBJ. 
+Por ultimo retornamos a variavel OBJ com o metodo OK para que o valor possa ser gravado pelo código. 
+As linhas cujo estão com os 3 asteriscos na frente são os comandos obrigatórios para o funcionamento da API.
+ 
+Desenvolvimento CRUD
+Criando a Tabela Schedule
+Passo 1 - Instalação dos pacotes Entity Framework através do terminal no comando:
+ “ dotnet tool install –global dotnet-ef ”
+“ dotnet add package Microsoft.EntityFrameworkCore.Design ”
+“ dotnet add package Microsoft.EntityFrameworkCore.SqlServe ” (o ultimo sufixo vai depender do banco de dados que esta sendo trabalhado).
+Passo 2 – Criação das Entidades:
+Entidade são as classes onde o código irá buscar os atributos para desenvolver as tabelas como por exemplo a tabela contato. Nesta parte do código criaremos a tabela Contatos. 
+Primeiramente criaremos uma nova pasta no projeto chamada Entities. Logo em seguida implementaremos o código abaixo: 
+ namespace API_Studt.Entities  {
+public class Contact 
+    {
+        public string? Nome {get; set;}
+        public string? Phone { get; set; }
+        public bool Active { get; set; }
+        public int ID { get; set; }
+    }
+}
+Passo 3 – Criando o Context:
+ O context é o arquivo onde ocorre a comunicação entre o código em C# e o banco de dados, dentro deste código iremos fazer a conexão com o banco através de herança da classe DbContext e também a fará a criação das colunas da tabela através do DbSet. Exemplo:
+
+namespace API_Study.Context
+{
+    public class NomeContext: DbContext 
+    {
+       
+        public NomeContext(DbContextOptions <NomeContext> options) : base(options) {
+        }
+//Esta primeira parte do código recebemos as ações e informações da classe pai DbContext, que é uma classe padrão do Entity Framework
+//No segundo trecho do código estamos setando as opções do contexto, essas opções são mutáveis através das Entities, basicamente aqui declaramos ao código que queremos os atributos passados anteriormente, não precisamos escrever nada no corpo do método.
+public DbSet<Contact> Contacts { get; set; }
+//E por fim temos este trecho que trás ao código os atributos criados arquivo Contato dentro da pasta Entities. Aqui falamos para o código que as colunas a ser criadas são Nome, Telefone, Atividade e ID.
+Passo 4 – Criação das Migrations
+As migrations são arquivos criado automaticamente pelo framework para conversão de código porém para que esses arquivos sejam gerados devemos utilizar os comando: 
+“ dotnet-ef migrations add MigrationCreation ”
+“ dotnet-ef database update “ 
+//Após isso já temos a tabela criada juntamente as possíveis colunas e podemos manusear o banco conforme o desejado.
+
+ 
+Adicionando Funcionalidades no CRUD 
+Para isso devemos criar a controller dentro do CRUD que terá o objetivo de realizar as ações no banco de dados. 
+Começamos declarando o nome dentro da nossa pasta de Controllers, neste caso será ContactController, aqui implementaremos as funções de Adicionar e Remover usuários no banco de dados. 
+Código de Criação: 
+Namespace API_Study.Controller{
+	[APIController]
+	[Route(“api/[controller]”)]
+	Public class ContactController : ControllerBase {
+Public readonly ScheduleContext _context; //Essa propriedade define que a variável _context gravará os dados na tabela ScheduleContext 
+Public ContactController (ScheduleContext contexto){
+_conext = contexto; //Esse ctor permite que façamos gravações no _context que por outrora era uma variável apenas de leitura, precisamos disso para que nada altere a variável original _context mas apenas a contexto que foi declarada aqui.
+}
+[HttpPost} //Tipo de ação que esse método terá 
+Public IActionResult Create (Contact contact){ 
+				//O “contact” serão os valores que serão passados pelo usuário para que assim possamos fazer o envio para a entidade “Contact” que foi declarada anteriormente na pasta Entities. Esta entidade por sua vez salvará os atributos no banco de dados.
+_context.Add(contact);
+_context.SaveChanges();
+Return Ok(contact);
+}
+}
+}
+ 
+Código de Delete:
+Por sua vez podemos repetir o código escrito acima porém com algumas peculiaridades 
+[HttpDelete] //Aqui definimos o tipo do método como um método de remoção
+        public IActionResult Delete(Contact contact){ 
+            _context.Remove(contact); //Nesta linha mudamos o Add para Remove
+            _context.SaveChanges();
+            return Ok(contact);
+        }
