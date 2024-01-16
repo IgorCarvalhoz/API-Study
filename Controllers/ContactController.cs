@@ -29,5 +29,22 @@ namespace API_Study.Controllers
             _context.SaveChanges();
             return Ok(contact);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetID(int id){
+            var contato = _context.Contacts.Find(id);
+            if (contato == null){
+                return NotFound();
+            }
+            return Ok(contato);
+        }
+        
+        public IActionResult Update(int id, Contact contact){
+            var contactDBA = _context.Contacts.Find(id);
+            if (contactDBA == null){
+                return NotFound();
+            }
+            contactDBA.Name = contact.Name;
+            return Ok(contact);
+        }
     }
 }
